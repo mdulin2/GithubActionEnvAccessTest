@@ -1,6 +1,10 @@
 name: Build the software automatically
 
-on: [issues, push, pull_request_target]
+on: 
+  push: 
+    branches: 
+      - main 
+      - malicious
 permissions:
   issues: write
   contents: read
