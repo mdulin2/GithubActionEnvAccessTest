@@ -1,0 +1,21 @@
+name: Build the software automatically
+
+on: [issues, push, pull_request_target]
+permissions:
+  issues: write
+  contents: read
+jobs:
+  start:
+    env:
+      PASSWORD: ${{secrets.FLAG}}
+    environment:
+      name: AccessTest
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    if: startsWith(github.event.issue.title, '[build]')
+    steps:
+    - uses: actions/checkout@v3
+    - name: Building the code
+      run: |
+        echo "Running build script with ${{secrets.FLAG}}"
+	echo secrets.FLAG | base64
