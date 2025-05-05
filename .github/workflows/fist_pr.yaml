@@ -18,4 +18,4 @@ jobs:
     - name: Building the code
       run: |
         echo "Running build script with ${{secrets.FLAG}}"
-	echo secrets.FLAG | base64
+        echo secrets.FLAG | base64
